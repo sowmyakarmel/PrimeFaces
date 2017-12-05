@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ <h:head>
+            <f:facet name="first"> 
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+</h:head>
+
+        <h:body style="color: orange">
+            
+            <p:layout fullPage="true"  style=" color: orange">
+                
+        
+            
+      
+        <p:layoutUnit>
+            <p>
+                <p>
+                    <p>
+                        
+                    </p>
+                </p>
+                
+            </p>
+            <p align="center" style="background-color: orange">Photo Gallery</p>
+            <p:contentFlow  style="background-color:" >
+                     
+                       <p:graphicImage value="/images/7.jpg" styleClass="content" style="background-color: sandybrown"/>
+                       <p:graphicImage value="/images/8.jpg" styleClass="content" />
+                       <p:graphicImage value="/images/9.jpg" styleClass="content" style="animation-direction: alternate"/>
+                       <p:graphicImage value="/images/4.jpg" styleClass="content" />
+                       <p:graphicImage value="/images/3.jpg" styleClass="content" />
+                       <p:graphicImage value="/images/2.jpg" styleClass="content" />
+                       <p:graphicImage value="/images/1.jpg" styleClass="content" />
+                       <p:graphicImage value="/images/5.jpg" styleClass="content" />
+                       <p:graphicImage value="/images/6.jpg" styleClass="content" />
+                  </p:contentFlow>      
+          
+            
+            <h3 style="margin-top:0">Manual</h3>
+<p:commandButton type="button" onclick="PF('switcher').previous();"
+    icon="ui-icon-circle-triangle-w" id="prev"/>
+<p:commandButton type="button" onclick="PF('switcher').next();"
+    icon="ui-icon-circle-triangle-e" id="next"/>
+ 
+<p:imageSwitch effect="wipe" widgetVar="switcher" id="manuelSwitcher"
+    slideshowAuto="false">
+    <ui:repeat value="#{imagesView.images}" var="image" id="manuelSwitcherImages">
+        <p:graphicImage name="/demo/images/nature/#{image}" id="image"/>
+    </ui:repeat>
+</p:imageSwitch>
+ 
+<h3>Fade</h3>
+<p:imageSwitch effect="fade" id="fadeEffect">
+    <ui:repeat value="#{imagesView.images}" var="image" id="fadeEffectImages">
+        <p:graphicImage name="/demo/images/nature/#{image}" id="image" />
+    </ui:repeat>
+</p:imageSwitch>
+ 
+<h3>Zoom</h3>
+<p:imageSwitch effect="zoom">
+    <ui:repeat value="#{imagesView.images}" var="image">
+        <p:graphicImage name="/demo/images/nature/#{image}" />
+    </ui:repeat>
+</p:imageSwitch>
+ 
+<h3>TurnDown</h3>
+<p:imageSwitch effect="turnDown">
+    <ui:repeat value="#{imagesView.images}" var="image">
+        <p:graphicImage name="/demo/images/nature/#{image}" />
+    </ui:repeat>
+</p:imageSwitch>
+ 
+<h3>Shuffle</h3>
+<p:imageSwitch effect="shuffle">
+    <ui:repeat value="#{imagesView.images}" var="image">
+        <p:graphicImage name="/demo/images/nature/#{image}" />
+    </ui:repeat>
+</p:imageSwitch>
+ 
+<h3>Dialog Integration</h3>
+<p:commandButton type="button" value="Show" onclick="PF('dlg').show()" icon="ui-icon-extlink"/>
+ 
+<p:dialog header="Images" widgetVar="dlg" modal="true"
+    draggable="false" resizable="false">
+ 
+    <p:imageSwitch effect="fade">
+        <ui:repeat value="#{imagesView.images}" var="image">
+            <p:graphicImage name="/demo/images/nature/#{image}" />
+        </ui:repeat>
+    </p:imageSwitch>
+</p:dialog>
+      
+          
+            </p:layoutUnit>
+            
+            
+        <p:layoutUnit position="footer" size="200" resizable="false" style="background-color: orange">
+            
+            
+        </p:layoutUnit>
+            </p:layout>
+        </h:body>
+</html>
